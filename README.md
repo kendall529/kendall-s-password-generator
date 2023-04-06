@@ -36,7 +36,7 @@ The following image shows the web application's appearance and functionality:
 
 ## Link to website
 
-
+https://kendall529.github.io/kendall-s-password-generator/
 
 ## Grading Requirements
 
