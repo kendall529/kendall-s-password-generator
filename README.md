@@ -1,5 +1,9 @@
 # 03 JavaScript: Password Generator
 
+## Description
+
+A password generator structured off of the class starter files and then turned functional through the addition of JavaScript. Click the "Generate Password" button and then you will be asked a series of prompts for how you want your password to look. You can decide on a length of characters ranging from 8-128 and the type of characters you want such as numbers, symbols, capital and or lowercase letters.
+
 ## User Story
 
 ```
@@ -43,24 +47,6 @@ https://kendall529.github.io/kendall-s-password-generator/
 This Challenge is graded based on the following criteria: 
 
 
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
 
 ### Repository Quality: 13%
 

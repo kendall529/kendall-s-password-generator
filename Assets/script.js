@@ -15,6 +15,32 @@ var upperCharCodes = arrayLowToHighs(65, 90);
 var numberCharCodes = arrayLowToHighs(48, 57);
 var symbolCharCodes = arrayLowToHighs(33, 47).concat(arrayLowToHighs(58, 64)).concat(arrayLowToHighs(91, 96)).concat(arrayLowToHighs(123, 126));
 
+
+function generatePassword(passwordLength, useUpper, useLower, useNumbers, useSymbols) {
+  var charCodes = [];
+  if(useLower) 
+    charCodes= charCodes.concat(lowerCharCodes)
+  if(useUpper)
+    charCodes = charCodes.concat(upperCharCodes)
+  if(useNumbers) 
+    charCodes = charCodes.concat(numberCharCodes)
+  if(useSymbols) 
+    charCodes = charCodes.concat(symbolCharCodes)
+
+// I used other built in functions here like math.floor and math.random but
+// Ultimately Chat GPT taught me the ones below. But I did still do all the work
+// It's just that it said this was a more secure way and I thought that was cool
+
+  var password = '';
+  var randomValues = new Uint32Array(passwordLength);
+  window.crypto.getRandomValues(randomValues);
+  for(var i = 0; i < passwordLength; i++) {
+    var charCode = charCodes[randomValues[i] % charCodes.length]
+    password += String.fromCharCode(charCode)
+  }
+  return password;
+}
+
 function writePassword() {
   var passwordLength = prompt('How many characters?');
   if(passwordLength === null) {
@@ -43,34 +69,6 @@ if(!useLower && !useUpper && !useNumbers && !useSymbols) {
 
 
 }
-
-function generatePassword(passwordLength, useUpper, useLower, useNumbers, useSymbols) {
-  var charCodes = [];
-  if(useLower) 
-    charCodes= charCodes.concat(lowerCharCodes)
-  if(useUpper)
-    charCodes = charCodes.concat(upperCharCodes)
-  if(useNumbers) 
-    charCodes = charCodes.concat(numberCharCodes)
-  if(useSymbols) 
-    charCodes = charCodes.concat(symbolCharCodes)
-
-// I used other built in functions here like math.floor and math.random but
-// Ultimately Chat GPT taught me the ones below. But I did still do all the work
-// It's just that it said this was a more secure way and I thought that was cool
-
-  var password = '';
-  var randomValues = new Uint32Array(passwordLength);
-  window.crypto.getRandomValues(randomValues);
-  for(var i = 0; i < passwordLength; i++) {
-    var charCode = charCodes[randomValues[i] % charCodes.length]
-    password += String.fromCharCode(charCode)
-  }
-  return password;
-}
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword) 
